@@ -10,15 +10,16 @@ React Components Tutorial
 - src/pages/qcomps/recipes.tsx
 */
 
-import Gallery from './qcomps/gallery_props'
-
-import List from './qcomps/list_keys_id'
+import Gallery from "./qcomps/gallery_props";
+import List from "./qcomps/list_keys_id";
+import RecipeList from "./qcomps/recipes";
 
 export default function Home() {
   return (
     <div>
       <Gallery />
       <List />
+      <RecipeList />
     </div>
-  )
+  );
 }
