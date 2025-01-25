@@ -1,6 +1,6 @@
 const people = [
   'Creola Katherine Johnson: mathematician',
-  'Mario J osé Molina-Pasquel Henríquez: chemist',
+  'Mario José Molina-Pasquel Henríquez: chemist',
   'Mohammad Abdus Salam: physicist',
   'Percy Lavon Julian: chemist',
   'Subrahmanyan Chandrasekhar: astrophysicist'
