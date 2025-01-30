@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { sculptureList } from '../../data/data';
+import { useState } from "react";
+import { sculptureList } from "../../data/data";
 
 /**
  * The Gallery component displays a sculpture from the sculptureList array.
@@ -20,7 +20,13 @@ export default function Gallery() {
    * The handleNextClick function increments the index state variable to display the next sculpture.
    */
   function handleNextClick() {
-    setIndex(index + 1);
+    // setIndex(index + 1); ==> an ERROR.
+    // The index will eventually go out of array's bounds. Need to wrap around.
+    if (index < sculptureList.length - 1) {
+      setIndex(index + 1);
+    } else {
+      setIndex(0);
+    }
   }
 
   /**
@@ -32,15 +38,13 @@ export default function Gallery() {
 
   let sculpture = sculptureList[index];
   /**
-   * The JSX expression returns a button to display the next sculpture, 
-   * the sculpture name and artist, 
+   * The JSX expression returns a button to display the next sculpture,
+   * the sculpture name and artist,
    * the sculpture description, and the sculpture image.
    */
   return (
     <>
-      <button onClick={handleNextClick}>
-        Next
-      </button>
+      <button onClick={handleNextClick}>Next</button>
       <h2>
         <i>{sculpture.name} </i>
         by {sculpture.artist}
@@ -49,13 +53,10 @@ export default function Gallery() {
         ({index + 1} of {sculptureList.length})
       </h3>
       <button onClick={handleMoreClick}>
-        {showMore ? 'Hide' : 'Show'} details
+        {showMore ? "Hide" : "Show"} details
       </button>
       {showMore && <p>{sculpture.description}</p>}
-      <img
-        src={sculpture.url}
-        alt={sculpture.alt}
-      />
+      <img src={sculpture.url} alt={sculpture.alt} />
     </>
   );
 }

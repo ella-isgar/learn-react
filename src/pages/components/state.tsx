@@ -1,15 +1,18 @@
-import { useState } from 'react';
-import { sculptureList } from '../../data/data';
+import { useState } from "react";
+import { sculptureList } from "../../data/data";
 
 /**
- * 
+ *
  * @returns A component that displays a gallery of sculptures.
  */
 export default function Gallery() {
   /**
    * The index of the sculpture to display.
    */
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0); // The use of REACT HOOK (useState)
+  // setVariableName
+  // - acts like a ViewModel (except rn all concerns are mushed together)
+  // - an updater function associated with a state variable
 
   /**
    * Increments the index of the sculpture to display.
@@ -22,14 +25,12 @@ export default function Gallery() {
   let sculpture = sculptureList[index];
 
   /**
-   * The JSX ecpression returns a button that, 
+   * The JSX ecpression returns a button that,
    * when clicked, increments the index of the sculpture to display.
    */
   return (
     <>
-      <button onClick={handleClick}>
-        Next
-      </button>
+      <button onClick={handleClick}>Next</button>
       <h2>
         <i>{sculpture.name} </i>
         by {sculpture.artist}
@@ -37,13 +38,8 @@ export default function Gallery() {
       <h3>
         ({index + 1} of {sculptureList.length})
       </h3>
-      <img
-        src={sculpture.url}
-        alt={sculpture.alt}
-      />
-      <p>
-        {sculpture.description}
-      </p>
+      <img src={sculpture.url} alt={sculpture.alt} />
+      <p>{sculpture.description}</p>
     </>
   );
 }
